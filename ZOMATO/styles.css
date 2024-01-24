@@ -1,0 +1,572 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+.hero_section
+{
+    background: url(images/zomato-lead.jpg);
+    min-height: 60vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    height: 60px;   
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar_menu_content{
+    display: flex;
+    gap: 20px;
+}
+
+.navbar_menu_content .user_icon{
+    height: 30px;
+    width: 30px;
+    border: 1px solid white;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: none ;
+}
+
+.hero_section_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    height: calc(60vh-60px);
+}
+
+.hero_section_logo{
+    width: 500px;
+    height: auto;
+}
+
+.hero_section_title{
+    color: white;
+    text-align: center;
+    font-size: 30px; 
+    font-weight: 400;
+}
+
+.hero_section_input_container
+{
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    width: 50%;   
+    border-radius: 7px; 
+    letter-spacing: 10px;   
+}
+
+.input_container_location, .input_container_search{
+    padding: 5px;
+    border: none;
+    outline: none;
+}
+
+.input_container_location{
+    width: 35%;
+    border-right: 2px solid #e0e0e0 ;
+    ;
+}
+
+.input_container_search{
+    
+    width: 65%;
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+    .navbar_menu_content .user_icon {
+        display: flex;
+    }
+
+    .link {
+        display: none;
+    }
+
+    .hero_section{
+        min-height: 80vh;
+    }
+
+    .navbar {
+        padding: 16px;
+    }
+
+    .hero_section_input_container{
+        flex-direction: column;
+        background-color: transparent;
+        width: 100%; 
+    }
+    .input_container_location,.input_container_search{
+        padding: 15px;
+        border-radius: 10px;
+        width: 95%;
+    }
+    .hero_section_container{
+        height: calc(80vh-60px);
+    }
+    .hero_section_title{
+        font-size: 20px;
+        width: 95%;
+    }
+}
+
+
+.container{
+    margin: 4rem;
+    width: 90%;
+}
+
+.we_offer{
+    /* padding-left: 3%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    background:white;
+}    
+
+.we_offer_card{
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.we_offer_card:hover{
+    transform: scale(1.05);
+}
+
+.we_offer_card img{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.we_offer_content{
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.we_offer_content h2{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.we_offer_content p{
+    font-size: 12px;
+}
+
+.collections h1{
+    font-weight: 600;
+}
+
+.collections .sub_heading_container{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.sub_heading_container span:nth-child(2){
+    color: tomato;
+    font-weight: 400;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.collection_card_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.6rem;   
+}
+
+.collection_card_container .card{
+    height: 300px;
+    min-width: 240px;
+    /* background-color: blueviolet; */
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;  
+    position: relative;  
+}
+
+.card1{
+    background-image: url(images/collection1.jpg);
+}
+.card2 {
+    background-image: url(images/collection2.jpg);
+}
+.card3 {
+    background-image: url(images/collection3.jpg);
+}
+.card4 {
+    background-image: url(images/collection4.jpg);
+    color: black;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* background: rgb(36, 0, 0);
+    background: linear-gradient(0deg, rgba(36, 0, 0, 0.6) 54%, rgba(10, 37, 48, 0.2) 91%, rgba(121, 9, 9, 0) 100%); */
+    background: rgb(26, 0, 0);
+        background: linear-gradient(0deg, rgba(1, 0, 0, 0.6) 54%, rgba(10, 17, 28, 0.1) 91%, rgba(701, 9, 9, 0) 100%);
+}
+
+.content{
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   color: white;
+   padding: 12px 16px;
+   font-size: 0.9rem;
+   font-weight: 400; 
+}
+
+.get_the_app{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 243, 226);
+    width: 95%;
+    padding: 3rem 6rem ;
+}
+
+.get_the_app .semicontainer{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.get_the_app .semicontainer .left{
+    flex: 2 ;
+}
+
+.get_the_app .semicontainer .left img{
+    width: 100%;
+    object-fit: cover;
+    object-position: cover;
+}
+
+.get_the_app .semicontainer .right{
+    flex: 3;
+    height: 100%;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.right h1{
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.right p{
+    font-size: 0.8rem;
+}
+
+.radio__button_container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.radio__button_container div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.radio__button_container div input{
+    height: 15px;
+    width: 15px;
+    accent-color: rgb(239, 75, 95);
+}
+
+.semiContainer .right .input_container{
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.input_container input, .input_container button{
+    padding: 10px 12px;
+}
+
+.input_container input{
+    outline: none;
+    flex: auto;
+    width: 300px;
+    border: 1.5px solid grey;
+    border-radius: 6px;
+}
+
+.input_container button{
+    border: none;
+    background-color: rgb(239, 75, 95);
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.download_app_container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+
+.download_app_container h5 {
+    font-weight: 400;
+    color: gray;
+}
+
+.download_app_container div {
+    display: flex;
+    gap: 1rem;
+}
+
+.download_app_container div img {
+    width: 33%;
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .get_the_app .semicontainer .left .get_the_app .semicontainer .right {
+        flex: 1;
+    }
+
+    .get_the_app .semicontainer {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    .get_the_app {
+        padding: 2rem;
+    }
+
+    .get_the_app .semicontainer {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+
+    .get_the_app {
+        padding: 3rem 0;
+    }
+
+    .get_the_app .semicontainer {
+        width: 80%;
+        flex-direction: column;
+    }
+}
+
+.footer{
+    width: 100%;
+}
+
+.footer_section1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+
+.footer_section1 img{
+    width: 120px
+}
+
+.footer_section1 button{
+        border: none;
+            background: none;
+}
+
+.footer_section1 button:hover{
+    cursor: pointer;
+    
+}
+
+.section1_buttoncontainer{
+    display: flex;
+    gap: 1rem;
+}
+
+.section1_buttoncontainer button{
+    padding: 5px;
+    width: 90%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: transparent;   
+    cursor: pointer; 
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+
+.navigation_container{
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+     */
+     /* or */
+    grid-template-columns: repeat(5,1fr);
+    width: 80%;
+    margin: auto;
+    gap: 1rem;
+    padding: 3rem 0;
+}
+
+.link_container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.link_container h5{
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 5px;
+    letter-spacing: 0.8px;
+}
+
+.footer_link{
+    text-decoration: none;
+    color: grey;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.footer_link:hover{
+    color: black;
+    transition: all 0.1s ease;
+    transform: scale(1.02);
+}
+
+.social_links_conatiner{
+    display: flex;
+    gap: 1px;
+}
+
+.social_links_conatiner button{
+    background-color: black;
+    color:white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.social_links_conatiner button i{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.footer_section_logo{
+    width: 90%;
+}
+
+.termsandconditions{
+    width: 90%;
+    margin: auto;
+    padding: 1.5 rem;
+    margin-top: 1px solid grey;
+    color: grey;
+}
+
+@media only screen and (max-width: 900px) {
+    .navigation_container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .navigation_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .navigation_container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+
+/* EXTRA */
+.collection_card_container .card1{
+    transition: all 0.3s ease;
+}
+.collection_card_container .card2 {
+    transition: all 0.3s ease;
+}
+.collection_card_container .card3 {
+    transition: all 0.3s ease;
+}
+.collection_card_container .card4 {
+    transition: all 0.3s ease;
+}
+
+.collection_card_container .card1:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.collection_card_container .card2:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.collection_card_container .card3:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.collection_card_container .card4:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+
+.we_offer_card:hover{
+    cursor: pointer;
+}
