@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasky Application</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body onload="loadInitialData()">
+    <!--
+    DOM - DOCUMENT OBJECT MODEL
+    WEB DEVELOPMENT IS FULLY DEPEND ON DOM MANIPULATION
+-->
+    <!-- Mobile -> Add new Modal -->
+    <div class="add_new_btn_mobile_only">
+      <button
+        class="btn btn-primary d-flex align-items-center gap-2"
+        data-bs-toggle="modal"
+        data-bs-target="#addNewModel"
+        type="submit"
+      >
+        <i class="fa-solid fa-plus" style="color: #ffffff"></i> Add New Item
+      </button>
+    </div>
+
+    <!-- Modal : Form Modal -->
+    <div
+      class="modal fade"
+      id="addNewModel"
+      tabindex="-1"
+      aria-labelledby="addNewModelLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="addNewModelLabel">Add New Task</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="imageUrl" class="form-label">Image URL</label>
+                <input
+                  type="url"
+                  id="imageUrl"
+                  class="form-control"
+                  placeholder="https://example.com/image.jpg"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="taskTitle" class="form-label">Task Title</label>
+                <input
+                  type="text"
+                  id="taskTitle"
+                  class="form-control"
+                  placeholder="Task Title"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="tags" class="form-label">Task Type</label>
+                <input
+                  type="text"
+                  id="tags"
+                  class="form-control"
+                  placeholder="Task Type"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="taskDescription" class="form-label"
+                  >Task Description</label
+                >
+                <textarea
+                  type="text"
+                  id="taskDescription"
+                  class="form-control"
+                  placeholder="Task Description"
+                  required
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary" onclick="handleSubmit()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Open Task-->
+    <!-- Button trigger modal
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#showTask"
+    >
+      Open Task
+    </button> -->
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="showTask"
+      tabindex="-1"
+      aria-labelledby="showTaskLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="showTaskLabel">Task Details..</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <!--Dynamic Functionality-->
+          <div class="modal-body task_modal_body"></div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Tasky Application</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+          </ul>
+
+          <button
+            class="btn btn-primary d-flex align-items-center gap-2"
+            data-bs-toggle="modal"
+            data-bs-target="#addNewModel"
+            type="submit"
+          >
+            <i class="fa-solid fa-plus" style="color: #ffffff"></i> Add New Item
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <section class="mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="input-group flex-nowrap shadow-lg">
+              <input
+                type="search"
+                class="form-control"
+                placeholder="Search Your Task Here "
+                oninput="searchTask.apply(this,arguments)"
+              />
+              <span class="input-group-text">
+                <i
+                  class="fa-solid fa-magnifying-glass fa-fade"
+                  style="color: #0091ff"
+                ></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-4">
+        <!--Dynamic Functionality-->
+        <div class="row task_contents">
+          <!-- <h5>My Cards Section</h5> -->
+        </div>
+      </section>
+    </div>
+
+    <!--JS Dummy Functionality HTML Representation-->
+    <!-- <div class='col-md-6 col-lg-4 mt-3' id=${id} key=${id}>
+      <div class='card shadow-sm task__card'>
+          <div class='card-header d-flex justify-content-end task__card__header'>
+            <button type="button" class="btn btn-outline-info mr-2" name="${id}">
+              <i class="fas fa-pencil-alt" name=${id}></i>
+            </button>
+             <button type="button" class="btn btn-outline-danger mr-2" name="${id}">
+              <i class="fas fa-trash-alt" name=${id}></i>
+            </button>
+          </div>
+          <div class="card-body">
+             ${
+              url &&
+              `<img width='100%' src=${url} alt='card image cap' class='card-img-top md-3 rounded-lg' />`
+          }
+          <h4 class="card-title">${title}</h4>
+          <p class="description trim-3-lines text-muted data-gram_editor='false'">${description}</p>
+          <div class="tags text-white d-flex flex-wrap">
+            <span class="badge bg-primary m-1">${type}</span>
+          </div>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-outline-primary float-right" data-bs-toggle="modal" data-bs-target="#showTask">Open Task</button>
+          </div>
+      </div>
+  </div> -->
+
+  
+   
+
+  
+    <script src="index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+
+
